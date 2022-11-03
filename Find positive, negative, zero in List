@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    public class Result
+    {
+       public static void plusMinus(List<int> arr)
+    {
+        int neg, zero, pos, countArr;
+        countArr = arr.Count;
+        Console.WriteLine(countArr);
+           
+        if (-100 <=countArr && countArr <=100){
+            var posArr = arr.Where(n => n > 0);
+            var negArr = arr.Where(n => n < 0);
+            var zeroArr = arr.Where(n => n == 0);
+            pos = posArr.Count();
+            neg = negArr.Count();
+            zero = zeroArr.Count();
+			Console.WriteLine(pos);
+        }
+        else Console.WriteLine("To many integers");
+        
+       
+       // decimal negD = neg/countArr;
+        //decimal zeroD = zero/countArr;
+       // decimal posD = pos/countArr;
+       // Console.WriteLine(posD);
+        //Console.WriteLine(negD);
+       // Console.WriteLine(zeroD);
+    }
+    }
+    class Solution
+{
+    public static void Main(string[] args)
+    {
+        int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+        List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+
+        Result.plusMinus(arr);
+    }
+}
+}
