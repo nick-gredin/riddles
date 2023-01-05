@@ -1,0 +1,23 @@
+//helper to map characters counts
+const charCount = (str) =>{
+  return [...str].reduce((a,c)=> a.set(c, (a.get(c)||0)+1), new Map)
+}
+
+//Function returning NOT string true/false
+function CheckStringScrumble (str1, str2){
+   const s2Counts = charCount(str2),
+        s1Counts = charCount(str1);
+
+  return [...s2Counts.entries()].every(([char, count])=> s1Counts.get(char) >=count)
+}
+
+function StringScramble(str1,str2) { 
+  //Because need STRING "true" using this
+  if (CheckStringScrumble(str1, str2))
+    return "true";
+  else
+    return "false";
+}
+
+// keep this function call here 
+console.log(StringScramble(readline()));
